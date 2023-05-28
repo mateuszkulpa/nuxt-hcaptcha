@@ -1,5 +1,5 @@
 {
-  "name": "@nuxtjs/hcaptcha",
+  "name": "nuxt-hcaptcha-module",
   "version": "0.0.0",
   "description": "Nuxt hCaptcha integration module",
   "repository": "mateuszkulpa/nuxt-hcaptcha",

@@ -12,7 +12,7 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@nuxtjs/hcaptcha',
+    name: 'nuxt-hcaptcha-module',
     configKey: 'hcaptcha'
   },
   defaults: nuxt => ({

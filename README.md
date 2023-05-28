@@ -11,25 +11,25 @@ Nuxt module that allows to protect your website from bots. Heavily inspired by [
 
 ## Quick Setup
 
-1. Add `@nuxtjs/hcaptcha` dependency to your project
+1. Add `nuxt-hcaptcha-module` dependency to your project
 
 ```bash
 # Using pnpm
-pnpm add -D @nuxtjs/hcaptcha
+pnpm add -D nuxt-hcaptcha-module
 
 # Using yarn
-yarn add --dev @nuxtjs/hcaptcha
+yarn add --dev nuxt-hcaptcha-module
 
 # Using npm
-npm install --save-dev @nuxtjs/hcaptcha
+npm install --save-dev nuxt-hcaptcha-module
 ```
 
-2. Add `@nuxtjs/hcaptcha` to the `modules` section of `nuxt.config.ts`
+2. Add `nuxt-hcaptcha-module` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/hcaptcha'
+    'nuxt-hcaptcha-module'
   ]
 })
 ```
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
 3. Set `siteKey` and `secretKey` generated in hCaptcha dashboard
 ```
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/hcaptcha"],
+  modules: ["nuxt-hcaptcha-module"],
   hcaptcha: {
     siteKey: 'YOUR_SITE_KEY',
     secretKey: 'YOUR_SECRET_KEY'
@@ -107,14 +107,14 @@ npm run release
 ```
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/hcaptcha/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-version-href]: https://npmjs.com/package/@nuxtjs/hcaptcha
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-hcaptcha-module/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-version-href]: https://npmjs.com/package/nuxt-hcaptcha-module
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtjs/hcaptcha.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/hcaptcha
+[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-hcaptcha-module.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-downloads-href]: https://npmjs.com/package/nuxt-hcaptcha-module
 
-[license-src]: https://img.shields.io/npm/l/@nuxtjs/hcaptcha.svg?style=flat&colorA=18181B&colorB=28CF8D
-[license-href]: https://npmjs.com/package/@nuxtjs/hcaptcha
+[license-src]: https://img.shields.io/npm/l/nuxt-hcaptcha-module.svg?style=flat&colorA=18181B&colorB=28CF8D
+[license-href]: https://npmjs.com/package/nuxt-hcaptcha-module
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com

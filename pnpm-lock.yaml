@@ -53,15 +53,15 @@ importers:
 
   playground:
     devDependencies:
-      '@nuxtjs/hcaptcha':
-        specifier: latest
-        version: link:..
       '@nuxtjs/tailwindcss':
         specifier: ^6.7.0
         version: 6.7.0(rollup@3.23.0)(webpack@5.84.1)
       nuxt:
         specifier: 3.5.1
         version: 3.5.1(@types/node@18.0.0)(eslint@8.41.0)(rollup@3.23.0)(typescript@5.0.4)
+      nuxt-hcaptcha-module:
+        specifier: latest
+        version: link:..
 
 packages:
 
