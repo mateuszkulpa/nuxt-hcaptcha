@@ -26,7 +26,7 @@ npm install --save-dev nuxt-hcaptcha-module
 
 2. Add `nuxt-hcaptcha-module` to the `modules` section of `nuxt.config.ts`
 
-```js
+```ts
 export default defineNuxtConfig({
   modules: [
     'nuxt-hcaptcha-module'
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 ```
 
 3. Set `siteKey` and `secretKey` generated in hCaptcha dashboard
-```
+```ts
 export default defineNuxtConfig({
   modules: ["nuxt-hcaptcha-module"],
   hcaptcha: {
