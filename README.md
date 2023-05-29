@@ -55,13 +55,24 @@ HCAPTCHA_SECRET_KEY=YOUR_SECRET_KEY
 
 ```vue
 <template>
-  <form>
-    <NuxtHCaptcha v-model="token" />
+  <form @submit.prevent="sendForm">
+    <!-- put your form fields here -->
+    <NuxtHCaptcha v-model="form.token" />
+    <button>submit</button>
   </form>
 </template>
 
 <script setup>
-const token = ref()
+const form = ref({
+  token: ''
+})
+
+async function sendForm () {
+  await $fetch('/api/your-api-endpoint', {
+    method: 'POST',
+    body: form.value
+  })
+}
 </script>
 ```
 
@@ -73,11 +84,19 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   const captchaResponse = await verifyHCaptchaToken(body.token)
 
-  return {
-    captchaResponse,
-    token: body.token
+  // return an error when hCaptcha detects a bot
+  if (!captchaResponse.success) {
+    return createError({
+      statusCode: 401
+    })
   }
+
+  // handle logic for verified user, for example:
+  // await createUser({ user: body.user })
+
+  return ({ success: true })
 })
+
 ```
 
 ## Development
