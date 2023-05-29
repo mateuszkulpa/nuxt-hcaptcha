@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useNuxtApp, ref, onMounted } from '#imports'
+
 const nuxtApp = useNuxtApp()
 const element = ref<HTMLElement>()
 const widgetId = ref<string>()

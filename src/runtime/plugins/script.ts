@@ -1,3 +1,5 @@
+import { defineNuxtPlugin, ref, useRuntimeConfig, watch, useHead } from '#imports'
+
 const hCaptchaScript = {
   src: 'https://js.hcaptcha.com/1/api.js?onload=onloadHCaptchaCallback',
   async: true,

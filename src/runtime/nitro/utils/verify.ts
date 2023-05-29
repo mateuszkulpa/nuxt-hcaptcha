@@ -1,5 +1,4 @@
 import type { HCaptchaVerificationResponse } from '../../types'
-
 // @ts-expect-error nitro aliases aren't registered
 import { useRuntimeConfig } from '#internal/nitro'
 
