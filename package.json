@@ -4,6 +4,13 @@
   "description": "Nuxt hCaptcha integration module",
   "repository": "mateuszkulpa/nuxt-hcaptcha",
   "license": "MIT",
+  "keywords": [
+    "nuxt",
+    "module",
+    "nuxt-module",
+    "captcha",
+    "hcaptcha"
+  ],
   "type": "module",
   "exports": {
     ".": {
