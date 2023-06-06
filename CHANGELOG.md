@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://undefined/undefined/compare/v0.0.3...v0.0.4)
+
+
+### 🩹 Fixes
+
+  - Add missing onBeforeUnmount import (9620138)
+
+### 🏡 Chore
+
+  - Update packages (495a7bf)
+
+### ❤️  Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.3
 
 [compare changes](https://undefined/undefined/compare/v0.0.2...v0.0.3)
