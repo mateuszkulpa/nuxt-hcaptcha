@@ -33,6 +33,10 @@ async function renderHCaptchaWidget () {
 onMounted(() => {
   renderHCaptchaWidget()
 })
+
+onBeforeUnmount(() => {
+  if (widgetId.value) { nuxtApp.$hcaptcha.remove(widgetId.value) }
+})
 </script>
 
 <template>
