@@ -8,8 +8,8 @@
     "generate": "nuxi generate"
   },
   "devDependencies": {
-    "nuxt-hcaptcha-module": "latest",
     "@nuxtjs/tailwindcss": "^6.7.0",
-    "nuxt": "3.5.1"
+    "nuxt": "3.5.3",
+    "nuxt-hcaptcha-module": "workspace:latest"
   }
 }
