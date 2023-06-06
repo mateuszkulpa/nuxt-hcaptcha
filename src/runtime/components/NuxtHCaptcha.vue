@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNuxtApp, ref, onMounted } from '#imports'
+import { useNuxtApp, ref, onMounted, onBeforeUnmount } from '#imports'
 
 const nuxtApp = useNuxtApp()
 const element = ref<HTMLElement>()
