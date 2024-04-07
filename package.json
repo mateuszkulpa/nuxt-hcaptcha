@@ -1,6 +1,6 @@
 {
   "name": "nuxt-hcaptcha-module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Nuxt hCaptcha integration module",
   "repository": "mateuszkulpa/nuxt-hcaptcha",
   "license": "MIT",
