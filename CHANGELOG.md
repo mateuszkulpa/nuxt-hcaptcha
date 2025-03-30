@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-hcaptcha/compare/v0.0.5...v0.0.6)
+
+### 🏡 Chore
+
+- Update dependencies ([48423fa](https://github.com/mateuszkulpa/nuxt-hcaptcha/commit/48423fa))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](https://github.com/mateuszkulpa))
+
 ## v0.0.5
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-hcaptcha/compare/v0.0.4...v0.0.5)
