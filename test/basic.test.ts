@@ -6,7 +6,7 @@ describe('hCaptcha widget', async () => {
   await setup({
     rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
     server: true,
-    browser: true
+    browser: true,
   })
 
   it('renders the page with hCaptcha widget page', async () => {

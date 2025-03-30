@@ -13,20 +13,20 @@ export interface ModuleOptions {
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-hcaptcha-module',
-    configKey: 'hcaptcha'
+    configKey: 'hcaptcha',
   },
   defaults: nuxt => ({
     siteKey: nuxt.options.dev ? '10000000-ffff-ffff-ffff-000000000001' : undefined,
-    secretKey: nuxt.options.dev ? '0x0000000000000000000000000000000000000000' : undefined
+    secretKey: nuxt.options.dev ? '0x0000000000000000000000000000000000000000' : undefined,
   }),
-  setup (options, nuxt) {
+  setup(options, nuxt) {
     const logger = useLogger('hcaptcha')
 
     const siteKey = process.env.HCAPTCHA_SITE_KEY || options.siteKey
     const secretKey = process.env.HCAPTCHA_SECRET_KEY || options.secretKey
     if (!siteKey) {
       logger.warn(
-        'No site key was provided. Make sure you pass one at runtime by setting HCAPTCHA_SITE_KEY.'
+        'No site key was provided. Make sure you pass one at runtime by setting HCAPTCHA_SITE_KEY.',
       )
     }
 
@@ -36,13 +36,13 @@ export default defineNuxtModule<ModuleOptions>({
     // Set up configuration
     nuxt.options.runtimeConfig = defu(nuxt.options.runtimeConfig, {
       hcaptcha: {
-        secretKey
+        secretKey,
       },
       public: {
         hcaptcha: {
-          siteKey
-        }
-      }
+          siteKey,
+        },
+      },
     })
 
     // Add plugin to load hcatpcha script
@@ -54,16 +54,16 @@ export default defineNuxtModule<ModuleOptions>({
     // Add nitro composable for verifying token in server routes
     nuxt.hook('nitro:config', (config) => {
       config.externals = defu(config.externals, {
-        inline: [runtimeDir]
+        inline: [runtimeDir],
       })
       config.imports = defu(config.imports, {
         presets: [
           {
             from: join(runtimeDir, 'nitro/utils/verify'),
-            imports: ['verifyHCaptchaToken']
-          }
-        ]
+            imports: ['verifyHCaptchaToken'],
+          },
+        ],
       })
     })
-  }
+  },
 })

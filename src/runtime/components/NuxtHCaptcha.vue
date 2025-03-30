@@ -6,28 +6,27 @@ const element = ref<HTMLElement>()
 const widgetId = ref<string>()
 
 const props = withDefaults(defineProps<{
-  modelValue?: string,
-  options?: Omit<ConfigRender, 'sitekey'>,
+  modelValue?: string
+  options?: Omit<ConfigRender, 'sitekey'>
 }>(), {
   modelValue: '',
-  options: () => ({})
+  options: () => ({}),
 })
 
 const emit = defineEmits<{
-  'update:modelValue': [token: string];
+  'update:modelValue': [token: string]
 }>()
 
-async function renderHCaptchaWidget () {
-  widgetId.value = await nuxtApp.$hcaptcha.render(element.value!,
-    {
-      ...props.options,
-      callback: (token) => {
-        emit('update:modelValue', token)
-        if (typeof props.options?.callback === 'function') {
-          props.options.callback?.(token)
-        }
+async function renderHCaptchaWidget() {
+  widgetId.value = await nuxtApp.$hcaptcha.render(element.value!, {
+    ...props.options,
+    callback: (token) => {
+      emit('update:modelValue', token)
+      if (typeof props.options?.callback === 'function') {
+        props.options.callback?.(token)
       }
-    })
+    },
+  })
 }
 
 onMounted(() => {
@@ -35,7 +34,9 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  if (widgetId.value) { nuxtApp.$hcaptcha.remove(widgetId.value) }
+  if (widgetId.value) {
+    nuxtApp.$hcaptcha.remove(widgetId.value)
+  }
 })
 </script>
 

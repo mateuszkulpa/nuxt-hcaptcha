@@ -5,13 +5,13 @@ import { useRuntimeConfig } from '#internal/nitro'
 const endpoint = 'https://hcaptcha.com/siteverify'
 
 export const verifyHCaptchaToken = async (
-  token: string
+  token: string,
 ): Promise<HCaptchaVerificationResponse> => {
   const {
     public: {
-      hcaptcha: { siteKey }
+      hcaptcha: { siteKey },
     },
-    hcaptcha: { secretKey }
+    hcaptcha: { secretKey },
   } = useRuntimeConfig()
 
   const data = new FormData()
@@ -21,6 +21,6 @@ export const verifyHCaptchaToken = async (
 
   return await $fetch(endpoint, {
     method: 'POST',
-    body: data
+    body: data,
   })
 }

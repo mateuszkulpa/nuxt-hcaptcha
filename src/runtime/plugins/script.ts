@@ -1,9 +1,14 @@
 import { defineNuxtPlugin, ref, useRuntimeConfig, watch, useHead } from '#imports'
 
+interface HCaptchaWindow extends Window {
+  hCaptchaLoadedPromise: Promise<void>
+  onloadHCaptchaCallback: () => void
+}
+
 const hCaptchaScript = {
   src: 'https://js.hcaptcha.com/1/api.js?onload=onloadHCaptchaCallback',
   async: true,
-  defer: true
+  defer: true,
 }
 
 export default defineNuxtPlugin(() => {
@@ -11,37 +16,39 @@ export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
 
   const hcaptchaPlugin = {
-    async loadHCaptcha () {
+    async loadHCaptcha() {
       addHCaptchaScript.value = true
-      await (window as any).hCaptchaLoadedPromise
+      await ((window as unknown) as HCaptchaWindow).hCaptchaLoadedPromise
     },
-    async render (element: string | HTMLElement, options: Omit<ConfigRender, 'sitekey'> = {}) {
+    async render(element: string | HTMLElement, options: Omit<ConfigRender, 'sitekey'> = {}) {
       await hcaptchaPlugin.loadHCaptcha()
       return hcaptcha.render(element, {
         sitekey: config.public.hcaptcha.siteKey,
-        ...options
+        ...options,
       })
     },
-    remove (widgetId: string) {
+    remove(widgetId: string) {
       hcaptcha.remove(widgetId)
-    }
+    },
   }
 
-  ;(window as any).hCaptchaLoadedPromise = new Promise<void>((resolve) => {
-    (window as any).onloadHCaptchaCallback = function () {
+  ;((window as unknown) as HCaptchaWindow).hCaptchaLoadedPromise = new Promise<void>((resolve) => {
+    ((window as unknown) as HCaptchaWindow).onloadHCaptchaCallback = function () {
       resolve()
     }
   })
 
   const unsubscribe = watch(addHCaptchaScript, () => {
-    if (!addHCaptchaScript.value) { return }
+    if (!addHCaptchaScript.value) {
+      return
+    }
     unsubscribe()
     useHead({ script: [hCaptchaScript] })
   })
 
   return {
     provide: {
-      hcaptcha: hcaptchaPlugin
-    }
+      hcaptcha: hcaptchaPlugin,
+    },
   }
 })
