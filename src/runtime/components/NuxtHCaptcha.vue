@@ -8,9 +8,11 @@ const widgetId = ref<string>()
 const props = withDefaults(defineProps<{
   modelValue?: string
   options?: Omit<ConfigRender, 'sitekey'>
+  size?: 'normal' | 'compact' | 'invisible'
 }>(), {
   modelValue: '',
   options: () => ({}),
+  size: 'normal',
 })
 
 const emit = defineEmits<{
@@ -20,6 +22,7 @@ const emit = defineEmits<{
 async function renderHCaptchaWidget() {
   widgetId.value = await nuxtApp.$hcaptcha.render(element.value!, {
     ...props.options,
+    size: props.size,
     callback: (token) => {
       emit('update:modelValue', token)
       if (typeof props.options?.callback === 'function') {
@@ -27,6 +30,10 @@ async function renderHCaptchaWidget() {
       }
     },
   })
+
+  if (props.size === 'invisible') {
+    await nuxtApp.$hcaptcha.execute(widgetId.value)
+  }
 }
 
 onMounted(() => {

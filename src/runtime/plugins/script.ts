@@ -30,6 +30,10 @@ export default defineNuxtPlugin(() => {
     remove(widgetId: string) {
       hcaptcha.remove(widgetId)
     },
+    async execute(widgetId?: string) {
+      await hcaptchaPlugin.loadHCaptcha()
+      return hcaptcha.execute(widgetId)
+    },
   }
 
   ;((window as unknown) as HCaptchaWindow).hCaptchaLoadedPromise = new Promise<void>((resolve) => {
