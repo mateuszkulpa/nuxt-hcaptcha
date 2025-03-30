@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-hcaptcha/compare/v0.0.6...v0.0.7)
+
+### 🚀 Enhancements
+
+- Support invisible mode ([ab66240](https://github.com/mateuszkulpa/nuxt-hcaptcha/commit/ab66240))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](https://github.com/mateuszkulpa))
+
 ## v0.0.6
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-hcaptcha/compare/v0.0.5...v0.0.6)
