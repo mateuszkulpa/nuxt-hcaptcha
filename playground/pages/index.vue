@@ -21,7 +21,19 @@
           >
         </div>
 
-        <NuxtHCaptcha v-model="normalForm.token" />
+        <div class="flex items-center gap-2">
+          <NuxtHCaptcha
+            ref="normalCaptchaRef"
+            v-model="normalForm.token"
+          />
+          <button
+            type="button"
+            class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+            @click="normalCaptchaRef?.refresh()"
+          >
+            Refresh
+          </button>
+        </div>
 
         <button
           :disabled="!normalForm.token"
@@ -57,10 +69,20 @@
           >
         </div>
 
-        <NuxtHCaptcha
-          v-model="invisibleForm.token"
-          size="invisible"
-        />
+        <div class="flex items-center gap-2">
+          <NuxtHCaptcha
+            ref="invisibleCaptchaRef"
+            v-model="invisibleForm.token"
+            size="invisible"
+          />
+          <button
+            type="button"
+            class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+            @click="invisibleCaptchaRef?.refresh()"
+          >
+            Refresh
+          </button>
+        </div>
 
         <button
           :disabled="!invisibleForm.token"
@@ -89,6 +111,9 @@ const invisibleForm = ref({
   token: '',
   response: null,
 })
+
+const normalCaptchaRef = ref()
+const invisibleCaptchaRef = ref()
 
 async function sendForm() {
   normalForm.value.response = await $fetch('/api/submit', {

@@ -36,6 +36,17 @@ async function renderHCaptchaWidget() {
   }
 }
 
+async function refresh() {
+  if (widgetId.value) {
+    await nuxtApp.$hcaptcha.remove(widgetId.value)
+  }
+  await renderHCaptchaWidget()
+}
+
+defineExpose({
+  refresh,
+})
+
 onMounted(() => {
   renderHCaptchaWidget()
 })
