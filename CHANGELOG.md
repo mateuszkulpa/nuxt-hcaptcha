@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-hcaptcha/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Support widget refreshing ([a8ed42b](https://github.com/mateuszkulpa/nuxt-hcaptcha/commit/a8ed42b))
+
+### ✅ Tests
+
+- Add tests for verifyHCaptchaToken util ([3713880](https://github.com/mateuszkulpa/nuxt-hcaptcha/commit/3713880))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](https://github.com/mateuszkulpa))
+
 ## v0.0.7
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-hcaptcha/compare/v0.0.6...v0.0.7)
