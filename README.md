@@ -5,8 +5,6 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-🚧 **Note: This project is currently under development and not yet production ready.**
-
 Nuxt module that allows to protect your website from bots. Heavily inspired by [Nuxt Turnstile](https://github.com/nuxt-modules/turnstile).
 
 ## Quick Setup
